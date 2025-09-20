@@ -1,0 +1,187 @@
+/* ===========================
+   General Body Styling
+=========================== */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: auto; /page scroll */
+}
+
+/* ===========================
+   Full-Page Background Image
+   with subtle floating animation
+=========================== */
+@keyframes floatBackground {
+    0% { transform: scale(1) translate(0, 0); }
+    50% { transform: scale(1.05) translate(10px, 10px); }
+    100% { transform: scale(1) translate(0, 0); }
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 110%; /* slightly larger to avoid edges during float */
+    height: 110%;
+    background-image: url("../images/medical.jpg"); /* replace if needed */
+    background-size: cover;
+    background-position: center;
+    filter: blur(3px) brightness(0.7);
+    z-index: -1;
+    animation: floatBackground 30s ease-in-out infinite; /* slow floating */
+}
+
+/* ===========================
+   Overlay for Centering Card
+=========================== */
+.overlay {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* ===========================
+   Glassmorphism Card
+=========================== */
+.card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 30px 40px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 700px;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+/* ===========================
+   Headings
+=========================== */
+h2 {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 30px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* ===========================
+   Form Labels and Inputs
+=========================== */
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: 600;
+    color: #fff;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+/* ===========================
+   Custom Placeholder Styling
+=========================== */
+::placeholder { /* Standard syntax */
+  color: rgba(255, 255, 255, 0.162) !important;
+  opacity: 1; /* Override Firefox's default lower opacity */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+input:focus, select:focus {
+    border-color: #00bfff;
+    box-shadow: 0 0 10px rgba(0,191,255,0.5);
+    outline: none;
+}
+
+/* ===========================
+   Buttons
+=========================== */
+button {
+    margin-top: 25px;
+    width: 100%;
+    padding: 12px;
+    background-color: #00bfff;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #009acd;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Back button */
+.btn-back {
+    background-color:#00C6FF;
+}
+
+.btn-back:hover {
+    background-color: #218838;
+}
+
+/* ===========================
+   Prediction Result Box
+=========================== */
+.result {
+    margin-top: 25px;
+    padding: 15px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+    color: #fff;
+    font-size: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+/* ===========================
+   Optional Table Styling (if needed)
+=========================== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+}
+
+th {
+    background-color: rgba(0,191,255,0.4);
+}
+
+tr:nth-child(even) {
+    background-color: rgba(255,255,255,0.05);
+}

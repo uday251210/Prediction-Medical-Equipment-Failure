@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+        <div class="background"></div>
+
+        <div class="overlay">
+        <div class="card">
+                        <h1 style="text-align: center;">Prediction Medical Equipment Failure</h1>
+            <h2>Welcome, {{ session['user'] }} 👋</h2>
+            <p style="text-align: center; color: white;">Choose an option below:</p>
+
+                        <button onclick="window.location.href='{{ url_for('index') }}'" class="btn-action">Go to Prediction</button>
+
+                        <button onclick="window.location.href='{{ url_for('download_history') }}'" class="btn-action">View History</button>
+
+                        <button onclick="window.location.href='{{ url_for('logout') }}'" class="btn-action">Logout</button>
+        </div>
+    </div>
+</body>
+</html>

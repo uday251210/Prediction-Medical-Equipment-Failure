@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Predict Medical Equipment Failure</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+</head>
+<body>
+    <!-- Full-page background image -->
+    <div class="background"></div>
+
+    <!-- Overlay holding the card -->
+    <div class="overlay">
+        <div class="card">
+            <h2>Predict Medical Equipment Failure</h2>
+
+            <!-- Prediction Form -->
+            <form action="{{ url_for('predict') }}" method="POST">
+                <label>Device Type:</label>
+                <input type="text" name="Device_Type" placeholder="Ventilator" required>
+
+                <label>Age (years):</label>
+                <input type="number" name="Age" placeholder="1" step="0.1" required>
+
+                <label>Maintenance Cost:</label>
+                <input type="number" name="Maintenance_Cost" placeholder="1200" step="0.01" required>
+
+                <label>Downtime (hours):</label>
+                <input type="number" name="Downtime" placeholder="2" step="0.1" required>
+
+                <label>Maintenance Frequency (per year):</label>
+                <input type="number" name="Maintenance_Frequency" placeholder="12" step="0.1" required>
+
+                <label>Manufacturer:</label>
+                <input type="text" name="Manufacturer" placeholder="Acme" required>
+
+                <label>Country:</label>
+                <input type="text" name="Country" placeholder="India" required>
+
+                <button type="submit">Predict</button>
+                <!-- 🔹 Added Back button -->
+                <button type="button" onclick="window.location.href='{{ url_for('home') }}'" class="btn-back">Back to Home</button>
+            </form>
+
+            <!-- Inline prediction display -->
+            {% if prediction_text %}
+            <div class="result">{{ prediction_text }}</div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
